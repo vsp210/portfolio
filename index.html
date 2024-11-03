@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка - Павел, Бэкенд Разработчик</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.light {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        body.dark {
+            background-color: #333;
+            color: #f4f4f4;
+        }
+        header {
+            background: inherit; /* Наследуем цвет фона */
+            padding: 10px 0;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        header.scrolled {
+            background: #555;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        section {
+            padding: 20px;
+            background: white;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background 0.3s;
+        }
+        section.dark {
+            background: #444;
+        }
+        section:hover {
+            transform: scale(1.02);
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: inherit; /* Наследуем цвет фона */
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        a {
+            color: inherit; /* Наследуем цвет текста */
+            text-decoration: none;
+        }
+        .theme-toggle {
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body class="light">
+
+<header id="header">
+    <h1>Павел - Бэкенд Разработчик</h1>
+</header>
+
+<div class="container">
+    <button class="theme-toggle" onclick="toggleTheme()">Переключить тему</button>
+    <section>
+        <h2>Обо мне</h2>
+        <p>Привет! Меня зовут Павел, мне 14 лет, и я увлекаюсь программированием на Python. Я стремлюсь стать профессиональным разработчиком и уже работаю над несколькими проектами.</p>
+    </section>
+
+    <section>
+        <h2>Навыки</h2>
+        <ul>
+            <li>Python</li>
+            <li>Django</li>
+            <li>Flask</li>
+            <li>Работа с базами данных (SQLite, PostgreSQL)</li>
+            <li>Основы HTML/CSS</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Проекты</h2>
+        <p>Вот несколько проектов, над которыми я работал:</p>
+        <ul>
+            <li><a href="#">Проект 1: Веб-приложение для управления задачами</a></li>
+            <li><a href="#">Проект 2: API для блога</a></li>
+            <li><a href="#">Проект 3: Чат-приложение на Flask</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Контакты</h2>
+        <p>Вы можете связаться со мной по электронной почте: <a href="mailto:pavel@example.com">pavel@example.com</a></p>
+        <p>Или найти меня в социальных сетях:</p>
+        <ul>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">LinkedIn</a></li>
+        </ul>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2023 Павел. Все права защищены.</p>
+</footer>
+<script>
+    // Меняем цвет заголовка при прокрутке страницы
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Функция для переключения тем
+    function toggleTheme() {
+        const body = document.body;
+        const sections = document.querySelectorAll('section');
+
+        // Переключаем класс между светлой и темной темами
+        if (body.classList.contains('light')) {
+            body.classList.remove('light');
+            body.classList.add('dark');
+            sections.forEach(section => section.classList.add('dark'));
+        } else {
+            body.classList.remove('dark');
+            body.classList.add('light');
+            sections.forEach(section => section.classList.remove('dark'));
+        }
+    }
+</script>
+</body>
+</html>
